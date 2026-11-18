@@ -1,40 +1,11 @@
-### Hi, I'm Toby 👋
+<!-- Every image below is built by src/build.mjs from src/blocks.html. On a phone (up to 600 px wide) each block switches to its stacked dark version. -->
 
-I'm a Computer Science student at [Wentworth Institute of Technology](https://wit.edu) (B.S., minor in Computer Networking, graduating December 2026). I build native apps and developer tools, mostly in **Rust** and **Swift**, and I like working close to the system: GPU-drawn UIs, macOS internals, and the plumbing that makes AI agents useful.
+<p align="center"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/header-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/header-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/header-light.webp" width="846" alt="Toby Dokyi (@dokyit), building. I build native apps and developer tools in Rust and Swift. Now: building Trek. Graduating: December 2026. Studying: CS at Wentworth. Based: Boston, MA. Focus: native apps and dev tools. Open to: new-grad SWE roles."></picture></p>
 
-Previously a Technical Support Engineer co-op at **Harvard University IT**. Open to **new-grad software engineering roles** starting 2027.
+<p align="center"><a href="https://trekdesktop.com"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/trek-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/trek-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/trek-light.webp" width="846" alt="01 Trek, every agent, one trail: a native desktop app that runs your coding agents from one inbox, with an iPhone companion. Screenshot: seven agent threads from different providers in one inbox, among them Claude Code, OpenCode and OpenRouter, with Claude Code's plan waiting for approval. Desktop app for macOS and Windows, built with Rust and GPUI."></picture></a></p>
 
----
+<p align="center"><a href="https://github.com/dokyit/Pinny"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/pinny-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/pinny-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/pinny-light.webp" width="423" alt="02 Pinny: Control-Z opens a live, floating preview of the focused window. Screenshot: Pinny's menu with a live preview open. Menu bar app for macOS, built with Swift, AppKit and SwiftUI."></picture></a><a href="https://github.com/dokyit/Shelf"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/shelf-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/shelf-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/shelf-light.webp" width="423" alt="03 Shelf: keep the items you use in the menu bar and put the rest on the shelf. Screenshot: the shelf panel with eight shelved items and two always hidden. Menu bar app for macOS 27, built with Swift, AppKit and SwiftUI."></picture></a></p>
 
-### Featured work
+<p align="center"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/stack-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/stack-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/stack-light.webp" width="846" alt="Stack. Languages: Rust, Swift, JavaScript. Native UI: GPUI, SwiftUI, AppKit, ScreenCaptureKit, Accessibility API. Agents and tooling: Claude Code, Codex, OpenCode, MCP, ACP. Systems and infra: Tokio, SQLite, GitHub Actions, Cloudflare Pages."></picture></p>
 
-**[Trek](https://github.com/dokyit/Trek)**: *Every agent. One trail.*<br>
-A native desktop app for macOS and Windows that runs Claude Code, Codex, Cursor, Copilot and any ACP agent, plus API and local models, from one inbox. It's a 34-crate Rust + GPUI workspace with an iPhone companion, per-turn diffs and undo, git worktrees, live PR cards, and signed auto-updates.<br>
-`Rust` `GPUI` `Tokio` `SQLite` `SwiftUI`
-
-**[Leopard Support](https://github.com/kennyegan/Leopard-support)**: *senior project*<br>
-A conversational IT help desk for Wentworth. Answers are grounded in TechSpot guides through vector retrieval, and it drafts an escalation ticket when a person is needed.<br>
-`Next.js` `FastAPI` `PostgreSQL + pgvector` `Gemini`
-
-**[Pinny](https://github.com/dokyit/Pinny)** and **[Shelf](https://github.com/dokyit/Shelf)**: *native macOS utilities*<br>
-Pinny shows a live, floating preview of any window with a global shortcut. Shelf is a menu bar manager built on macOS 27's own restriction mechanism, with no injection and no SIP changes.<br>
-`Swift` `AppKit` `SwiftUI` `ScreenCaptureKit` `Accessibility`
-
-**FM26MacEditor** *(private)*<br>
-A native arm64 macOS editor that attaches to a running game over Mach APIs. Every live-memory write is verified, rolled back on mismatch, and logged to an audit trail.<br>
-`Swift 6` `C` `Mach` `ARM64`
-
----
-
-### Toolbox
-
-**Languages:** Swift · Rust · Python · TypeScript · C/C++ · Java · SQL<br>
-**Frameworks:** SwiftUI · AppKit · GPUI · Tokio · React · Next.js · FastAPI · Flask<br>
-**Data and infrastructure:** PostgreSQL · SQLite · Redis · Docker · GitHub Actions · Vercel<br>
-**AI:** LLM APIs · RAG and embeddings · Ollama · Apple Foundation Models · MCP
-
----
-
-### Get in touch
-
-[LinkedIn](https://www.linkedin.com/in/toby-dokyi) · [tobydokyi12@gmail.com](mailto:tobydokyi12@gmail.com)
+<p align="center"><a href="https://trekdesktop.com"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-site-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-site-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-site-light.webp" width="281" alt="Site: trekdesktop.com"></picture></a><a href="https://www.linkedin.com/in/toby-dokyi"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-linkedin-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-linkedin-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-linkedin-light.webp" width="284" alt="LinkedIn: toby-dokyi"></picture></a><a href="https://github.com/dokyit"><picture><source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-github-phone.webp"><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-github-dark.webp"><img src="https://raw.githubusercontent.com/dokyit/dokyit/main/assets/link-github-light.webp" width="281" alt="GitHub: dokyit"></picture></a></p>

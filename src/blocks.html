@@ -1,0 +1,424 @@
+<!doctype html>
+<!--
+  Source of every image in ../assets. build.mjs opens this page in headless Chrome as
+  blocks.html?block=<name>&theme=<dark|light>&w=<css px>[&gl=..&gr=..&gt=..]
+  and captures #root at device scale 2. Nothing here is served on GitHub.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "Geist"; src: url("fonts/Geist-Variable.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; }
+
+:root {
+  /* dark: sits on GitHub's #0d1117 */
+  --panel: #0a0d12;
+  --line: #262d38;
+  --ink: #e8eaed;
+  --ink-2: #c5cbd3;
+  --mute: #8f98a3;
+  --accent: #ff7a3d;
+  --accent-text: #ff8a52;
+  --on-accent: #0a0d12;
+  --chip: #10141a;
+  --shot-bg: #111113;
+  --b-speck: #232a34;
+  --b-low: #3b2a24;
+  --b-mid: #a8471c;
+  --b-high: #ff7a3d;
+  --b-end-done: #5d6672;
+}
+:root[data-theme="light"] {
+  /* light: sits on GitHub's #ffffff */
+  --panel: #fafaf8;
+  --line: #d9dde3;
+  --ink: #14171c;
+  --ink-2: #2c323a;
+  --mute: #56606b;
+  --accent: #e2561f;
+  --accent-text: #b13e0d;
+  --on-accent: #14171c;
+  --chip: #ffffff;
+  --shot-bg: #ececec;
+  --b-speck: #e3e6ea;
+  --b-low: #f4d9cb;
+  --b-mid: #ee9a71;
+  --b-high: #e2561f;
+  --b-end-done: #9aa3ad;
+}
+
+* { box-sizing: border-box; }
+/* one inset for every block; the 844 px inner width splits into four 211 px columns that the
+   header tiles, Trek's facts, the Pinny|Shelf split and the stack chips all start on */
+:root { --x: 20px; }
+.phone { --x: 14px; }
+html, body { margin: 0; background: transparent; }
+body {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01" 0;
+}
+#root { display: inline-block; vertical-align: top; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* small caps labels: the one label style used everywhere */
+.lab {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.val { font-size: 13px; line-height: 18px; font-weight: 500; color: var(--ink); }
+
+/* ---------- top bar (header, cards, stack) ---------- */
+.bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 var(--x);
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.bar .sp { flex: 1; }
+.bar .strong { font-size: 13px; font-weight: 600; color: var(--ink); }
+.bar .soft { color: var(--mute); }
+.status { display: inline-flex; align-items: center; gap: 7px; color: var(--accent-text); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; }
+.status i { width: 7px; height: 7px; background: var(--accent); display: inline-block; }
+.num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; height: 18px; padding: 0 5px;
+  background: var(--accent); color: var(--on-accent);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; border-radius: 3px;
+}
+.arrow { font-family: "Geist", sans-serif; margin-left: 4px; }
+
+/* ---------- header ---------- */
+.banner { display: block; border-bottom: 1px solid var(--line); }
+.hbody { display: grid; grid-template-columns: 1fr 1fr; }
+.intro { padding: 26px var(--x) 24px var(--x); }
+.name {
+  font-family: "Geist", sans-serif;
+  font-size: 58px; line-height: 58px; font-weight: 560; letter-spacing: -0.035em;
+  margin-left: -3px;
+}
+.role {
+  font-family: "Geist", sans-serif;
+  font-size: 16px; line-height: 22px; color: var(--ink-2); margin-top: 12px; text-wrap: balance;
+}
+.fields { margin-top: 22px; display: grid; gap: 8px; }
+.field { display: grid; grid-template-columns: 112px 1fr; align-items: baseline; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; border-left: 1px solid var(--line); }
+.tile { padding: 18px var(--x); border-bottom: 1px solid var(--line); }
+.tile:nth-child(odd) { border-right: 1px solid var(--line); }
+.tile:nth-child(n+3) { border-bottom: 0; }
+.tile .val { margin-top: 12px; }
+
+/* ---------- project cards ---------- */
+.shot { position: relative; overflow: hidden; background: var(--shot-bg); border-bottom: 1px solid var(--line); }
+.shot img { position: absolute; display: block; }
+.cap {
+  font-family: "Geist", sans-serif;
+  font-size: 15px; line-height: 21px; color: var(--ink);
+  text-wrap: pretty;
+  padding: 14px var(--x) 15px var(--x);
+  border-bottom: 1px solid var(--line);
+}
+.meta { display: grid; }
+.cell { padding: 12px var(--x) 13px var(--x); border-left: 1px solid var(--line); }
+.cell:first-child { border-left: 0; }
+.cell .val { margin-top: 6px; font-size: 12.5px; }
+.meta.r2 > .cell:nth-child(n+3) { border-top: 1px solid var(--line); }
+.meta.r2 > .cell:nth-child(3) { border-left: 0; }
+
+/* ---------- stack ---------- */
+.srow { display: grid; grid-template-columns: calc(211px - var(--x)) 1fr; align-items: center; min-height: 54px; padding: 10px var(--x); border-top: 1px solid var(--line); }
+.bar + .srow { border-top: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: 12.5px; line-height: 16px; font-weight: 500; color: var(--ink);
+  padding: 6px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--chip);
+}
+
+/* ---------- link buttons ---------- */
+.btn { display: flex; align-items: stretch; height: 44px; white-space: nowrap; }
+.btn .k { width: 104px; display: flex; align-items: center; padding: 0 var(--x); border-right: 1px solid var(--line); }
+.btn .t { flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--x); font-size: 13px; font-weight: 500; }
+.btn .t .arrow { color: var(--accent-text); }
+
+/* ---------- phone (rendered at 340 css px) ---------- */
+.phone .hbody { grid-template-columns: 1fr; }
+.phone .intro { padding: 22px var(--x) 20px var(--x); }
+.phone .name { font-size: 44px; line-height: 46px; }
+.phone .role { font-size: 15px; line-height: 21px; margin-top: 10px; }
+.phone .fields { margin-top: 18px; }
+.phone .field { grid-template-columns: 104px 1fr; }
+.phone .tiles { border-left: 0; border-top: 1px solid var(--line); }
+.phone .tile { padding: 14px var(--x) 15px var(--x); }
+.phone .tile .val { margin-top: 8px; font-size: 12.5px; }
+.phone .bar { gap: 10px; }
+.phone .srow { grid-template-columns: 1fr; gap: 10px; padding: 14px var(--x); }
+.phone .chips { gap: 6px; }
+.phone .cap { padding: 12px var(--x) 13px var(--x); font-size: 15px; }
+.phone .cell { padding: 11px var(--x) 12px var(--x); }
+/* menu-bar cards list their facts as label/value rows */
+.meta.rows { grid-template-columns: 1fr !important; }
+.meta.rows .cell { display: grid; grid-template-columns: 112px 1fr; align-items: baseline; border-left: 0; padding: 11px var(--x) 12px var(--x); }
+.meta.rows .cell + .cell { border-top: 1px solid var(--line); }
+.meta.rows .cell .val { margin-top: 0; }
+.phone .meta.rows .cell { grid-template-columns: 104px 1fr; padding: 10px var(--x) 11px var(--x); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+// ---------------------------------------------------------------------------
+// Content. Every fact here is public on github.com/dokyit or in the READMEs of
+// dokyit/Trek, dokyit/Pinny and dokyit/Shelf.
+// ---------------------------------------------------------------------------
+const PROFILE = {
+  handle: "dokyit",
+  url: "github.com/dokyit",
+  status: "BUILDING",
+  name: "Toby Dokyi",
+  role: "I build native apps and developer tools in Rust and Swift.",
+  fields: [["Now", "building Trek"], ["Graduating", "December 2026"], ["Handle", "@dokyit"]],
+  tiles: [["Studying", "CS, Wentworth"], ["Based", "Boston, MA"], ["Focus", "native apps,\ndev tools"], ["Open to", "new-grad SWE roles"]],
+};
+
+const CARDS = {
+  trek: {
+    num: "01", title: "Trek", tag: "Every agent. One trail.", url: "trekdesktop.com",
+    cap: "A native desktop app that runs your coding agents from one inbox, with an iPhone companion.",
+    meta: [["Kind", "desktop app"], ["Platforms", "macOS · Windows"], ["Built with", "Rust · GPUI"], ["Runs", "Claude Code · Codex"]],
+    // the real capture: seven agents from four providers in one inbox (title bar cropped off)
+    shot: { src: "shots/trek-inbox.webp", w: 2880, h: 1734, radius: 26, bg: "#111113" },
+    phoneShot: { src: "shots/trek-inbox.webp", w: 2880, h: 1734, x: 0, y: 268, cw: 540, ch: 756 },
+  },
+  pinny: {
+    num: "02", title: "Pinny", url: "dokyit/Pinny",
+    cap: "Control-Z opens a live, floating preview of the focused window.",
+    meta: [["Kind", "menu bar · macOS"], ["Built with", "Swift · AppKit · SwiftUI"]],
+    // Pinny's own MenuBarView, rendered offscreen from the repo's source
+    shot: { src: "shots/pinny-menu-{theme}.webp", w: 850, h: 933, crop: 692, bg: { dark: "#202020", light: "#e7e7e7" } },
+  },
+  shelf: {
+    num: "03", title: "Shelf", url: "dokyit/Shelf",
+    cap: "Keep the items you use in the menu bar and put the rest on the shelf.",
+    meta: [["Kind", "menu bar · macOS 27"], ["Built with", "Swift · AppKit · SwiftUI"]],
+    // Shelf's own shelf panel (ShelfBarView), rendered offscreen from the repo's source
+    shot: { src: "shots/shelf-panel-{theme}.webp", w: 850, h: 685, crop: 692, bg: { dark: "#202020", light: "#e7e7e7" } },
+  },
+};
+
+const STACK = [
+  ["Languages", ["Rust", "Swift", "JavaScript"]],
+  ["Native UI", ["GPUI", "SwiftUI", "AppKit", "ScreenCaptureKit", "Accessibility API"]],
+  ["Agents & tooling", ["Claude Code", "Codex", "OpenCode", "MCP", "ACP"]],
+  ["Systems & infra", ["Tokio", "SQLite", "GitHub Actions", "Cloudflare Pages"]],
+];
+
+const LINKS = {
+  site: { k: "Site", t: "trekdesktop.com" },
+  linkedin: { k: "LinkedIn", t: "toby-dokyi" },
+  github: { k: "GitHub", t: "dokyit" },
+};
+
+// ---------------------------------------------------------------------------
+const q = new URLSearchParams(location.search);
+const block = q.get("block") || "header";
+const theme = q.get("theme") || "dark";
+const W = Number(q.get("w") || 846);
+const phone = q.get("phone") === "1";
+document.documentElement.dataset.theme = theme;
+if (phone) document.body.classList.add("phone");
+const root = document.getElementById("root");
+root.style.paddingLeft = (q.get("gl") || 0) + "px";
+root.style.paddingRight = (q.get("gr") || 0) + "px";
+root.style.paddingTop = (q.get("gt") || 0) + "px";
+const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+const arrow = `<span class="arrow">↗</span>`;
+
+// ---------------------------------------------------------------------------
+// Banner: seven agent threads, ordered-dithered. Two are still waiting (they run
+// to the right edge and end in the accent); five have finished (they fade out
+// and end in grey). Deterministic: fixed seed, no Math.random.
+// ---------------------------------------------------------------------------
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const BAYER8 = [
+  [0, 32, 8, 40, 2, 34, 10, 42], [48, 16, 56, 24, 50, 18, 58, 26],
+  [12, 44, 4, 36, 14, 46, 6, 38], [60, 28, 52, 20, 62, 30, 54, 22],
+  [3, 35, 11, 43, 1, 33, 9, 41], [51, 19, 59, 27, 49, 17, 57, 25],
+  [15, 47, 7, 39, 13, 45, 5, 37], [63, 31, 55, 23, 61, 29, 53, 21],
+].map((r) => r.map((v) => (v + 0.5) / 64));
+
+function drawBanner(canvas, w, h) {
+  const dpr = 2, cell = 3;                     // 3 css px cells = 6 device px
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.width = w + "px"; canvas.style.height = h + "px";
+  const g = canvas.getContext("2d");
+  g.fillStyle = css("--panel"); g.fillRect(0, 0, canvas.width, canvas.height);
+  const cols = Math.floor(w / cell), rows = Math.floor(h / cell);
+  const ox = Math.floor((w - cols * cell) / 2), oy = Math.floor((h - rows * cell) / 2);
+  const rnd = mulberry32(0x7e4b);
+  const lanes = [];
+  const waiting = new Set([0, 3]);             // the two threads still waiting on a person
+  for (let i = 0; i < 7; i++) {
+    const y = rows * (i + 1) / 8 + (rnd() - 0.5) * 1.2;
+    const start = Math.floor(cols * (0.02 + rnd() * 0.16));
+    const end = waiting.has(i) ? cols - 7 : Math.floor(cols * (0.5 + rnd() * 0.36));
+    const bursts = [];
+    const n = 4 + Math.floor(rnd() * 4);
+    for (let b = 0; b < n; b++) {
+      bursts.push({ c: start + rnd() * (end - start), s: 3 + rnd() * (cols * 0.05), a: 0.45 + rnd() * 0.55 });
+    }
+    if (waiting.has(i)) bursts.push({ c: end - cols * 0.04, s: cols * 0.05, a: 1.0 });
+    lanes.push({ y, start, end, bursts, waiting: waiting.has(i) });
+  }
+  const colors = [null, css("--b-speck"), css("--b-low"), css("--b-mid"), css("--b-high")];
+  const speckRnd = mulberry32(0x51ab);
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      let I = 0;
+      for (const L of lanes) {
+        if (c < L.start || c > L.end) continue;
+        let act = 0;
+        for (const b of L.bursts) act += b.a * Math.exp(-((c - b.c) ** 2) / (2 * b.s * b.s));
+        act = Math.min(1, act);
+        // finished threads fade out over their last stretch
+        if (!L.waiting) act *= Math.min(1, (L.end - c) / (cols * 0.06));
+        const fadeIn = Math.min(1, (c - L.start) / 4);
+        const sigma = 0.55 + 1.9 * act;
+        const d = r - L.y;
+        const v = (0.26 * fadeIn + 0.74 * act) * Math.exp(-(d * d) / (2 * sigma * sigma));
+        I = Math.max(I, v);
+      }
+      const t = BAYER8[r % 8][c % 8];
+      let lvl;
+      if (I < 0.02) lvl = speckRnd() < 0.035 ? 1 : 0;
+      else { const v = I * 4; const base = Math.floor(v); lvl = Math.min(4, base + (v - base > t ? 1 : 0)); }
+      if (!lvl) continue;
+      g.fillStyle = colors[lvl];
+      g.fillRect((ox + c * cell) * dpr, (oy + r * cell) * dpr, (cell - 1) * dpr + 1, (cell - 1) * dpr + 1);
+    }
+  }
+  // end markers: a 2x2-cell square where each thread stops
+  for (const L of lanes) {
+    g.fillStyle = L.waiting ? css("--b-high") : css("--b-end-done");
+    const yy = Math.round(L.y) - 1;
+    g.fillRect((ox + (L.end + 2) * cell) * dpr, (oy + yy * cell) * dpr, (2 * cell - 1) * dpr, (2 * cell - 1) * dpr);
+  }
+}
+
+// ---------------------------------------------------------------------------
+function header() {
+  const bh = phone ? 128 : 176;
+  root.innerHTML = `
+  <div class="panel" style="width:${W}px">
+    <div class="bar">
+      <span class="strong">${PROFILE.handle}</span>
+      <span class="status"><i></i>${PROFILE.status}</span>
+      <span class="sp"></span>
+      <span class="soft">${PROFILE.url}</span>
+    </div>
+    <canvas class="banner"></canvas>
+    <div class="hbody">
+      <div class="intro">
+        <div class="name">${PROFILE.name}</div>
+        <div class="role">${PROFILE.role}</div>
+        <div class="fields">
+          ${PROFILE.fields.map(([l, v]) => `<div class="field"><span class="lab">${l}</span><span class="val">${esc(v)}</span></div>`).join("")}
+        </div>
+      </div>
+      <div class="tiles">
+        ${PROFILE.tiles.map(([l, v]) => `<div class="tile"><div class="lab">${l}</div><div class="val">${esc(v).replace("\n", "<br>")}</div></div>`).join("")}
+      </div>
+    </div>
+  </div>`;
+  drawBanner(root.querySelector(".banner"), W - 2, bh);
+}
+
+function card(key) {
+  const C = CARDS[key];
+  const inner = W - 2;
+  const big = key === "trek";
+  let shotHTML;
+  if (big && !phone) {
+    const h = Math.round(inner * C.shot.h / C.shot.w);
+    // round the bottom corners like the real window (its corners showed the desktop)
+    shotHTML = `<div class="shot" style="height:${h}px;background:${C.shot.bg}"><img src="${C.shot.src}" style="left:0;top:0;width:${inner}px;height:${h}px;border-radius:0 0 ${C.shot.radius * inner / C.shot.w}px ${C.shot.radius * inner / C.shot.w}px"></div>`;
+  } else if (big && phone) {
+    const P = C.phoneShot;                          // crop: the inbox column
+    const s = inner / P.cw, h = Math.round(P.ch * s);
+    shotHTML = `<div class="shot" style="height:${h}px;background:${C.shot.bg}"><img src="${P.src}" style="left:${-P.x * s}px;top:${-P.y * s}px;width:${P.w * s}px;height:${P.h * s}px"></div>`;
+  } else {
+    const src = C.shot.src.replace("{theme}", theme);
+    const s = inner / C.shot.w;
+    const h = Math.round(C.shot.crop * s);   // same height for both menu-bar cards
+    shotHTML = `<div class="shot" style="height:${h}px;background:${C.shot.bg[theme]}"><img src="${src}" style="left:0;top:0;width:${inner}px;height:${C.shot.h * s}px"></div>`;
+  }
+  const cols = big && !phone ? 4 : 2;
+  const r2 = C.meta.length > cols;
+  root.innerHTML = `
+  <div class="panel" style="width:${W}px">
+    <div class="bar">
+      <span class="num">${C.num}</span>
+      <span class="strong">${C.title}</span>
+      ${C.tag && !phone ? `<span class="soft">${C.tag}</span>` : ""}
+      <span class="sp"></span>
+      <span class="soft">${C.url}${arrow}</span>
+    </div>
+    ${shotHTML}
+    <div class="cap">${esc(C.cap)}</div>
+    <div class="meta${r2 ? " r2" : ""}${!big || phone ? " rows" : ""}" style="grid-template-columns:repeat(${cols},1fr)">
+      ${C.meta.map(([l, v]) => `<div class="cell"><div class="lab">${l}</div><div class="val">${esc(v)}</div></div>`).join("")}
+    </div>
+  </div>`;
+}
+
+function stack() {
+  root.innerHTML = `
+  <div class="panel" style="width:${W}px">
+    <div class="bar"><span class="strong">stack</span><span class="sp"></span><span class="soft">as used in Trek, Pinny and Shelf</span></div>
+    ${STACK.map(([l, items]) => `<div class="srow"><div class="lab">${esc(l)}</div><div class="chips">${items.map((i) => `<span class="chip">${esc(i)}</span>`).join("")}</div></div>`).join("")}
+  </div>`;
+}
+
+function button(key) {
+  const L = LINKS[key];
+  root.innerHTML = `<div class="panel btn" style="width:${W}px"><span class="k lab">${L.k}</span><span class="t">${L.t}${arrow}</span></div>`;
+}
+
+const B = {
+  header, stack,
+  trek: () => card("trek"), pinny: () => card("pinny"), shelf: () => card("shelf"),
+  "link-site": () => button("site"), "link-linkedin": () => button("linkedin"), "link-github": () => button("github"),
+};
+B[block]();
+Promise.all([document.fonts.ready, ...[...document.images].map((i) => i.decode().catch(() => {}))]).then(() => {
+  // fonts arrive after the first layout: redraw anything measured, then report
+  if (block === "header") drawBanner(root.querySelector(".banner"), W - 2, phone ? 128 : 176);
+  window.__ready = true;
+});
+</script>
+</body>
+</html>

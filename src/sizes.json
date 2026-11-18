@@ -1,0 +1,98 @@
+{
+  "header-dark": {
+    "cssWidth": 846,
+    "cssHeight": 474
+  },
+  "header-light": {
+    "cssWidth": 846,
+    "cssHeight": 474
+  },
+  "header-phone": {
+    "cssWidth": 340,
+    "cssHeight": 573
+  },
+  "trek-dark": {
+    "cssWidth": 846,
+    "cssHeight": 664
+  },
+  "trek-light": {
+    "cssWidth": 846,
+    "cssHeight": 664
+  },
+  "trek-phone": {
+    "cssWidth": 340,
+    "cssHeight": 763
+  },
+  "pinny-dark": {
+    "cssWidth": 423,
+    "cssHeight": 536
+  },
+  "pinny-light": {
+    "cssWidth": 423,
+    "cssHeight": 536
+  },
+  "pinny-phone": {
+    "cssWidth": 340,
+    "cssHeight": 464
+  },
+  "shelf-dark": {
+    "cssWidth": 423,
+    "cssHeight": 536
+  },
+  "shelf-light": {
+    "cssWidth": 423,
+    "cssHeight": 536
+  },
+  "shelf-phone": {
+    "cssWidth": 340,
+    "cssHeight": 481
+  },
+  "stack-dark": {
+    "cssWidth": 846,
+    "cssHeight": 258
+  },
+  "stack-light": {
+    "cssWidth": 846,
+    "cssHeight": 258
+  },
+  "stack-phone": {
+    "cssWidth": 340,
+    "cssHeight": 481
+  },
+  "link-site-dark": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  },
+  "link-site-light": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  },
+  "link-site-phone": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  },
+  "link-linkedin-dark": {
+    "cssWidth": 284,
+    "cssHeight": 44
+  },
+  "link-linkedin-light": {
+    "cssWidth": 284,
+    "cssHeight": 44
+  },
+  "link-linkedin-phone": {
+    "cssWidth": 284,
+    "cssHeight": 44
+  },
+  "link-github-dark": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  },
+  "link-github-light": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  },
+  "link-github-phone": {
+    "cssWidth": 281,
+    "cssHeight": 44
+  }
+}
